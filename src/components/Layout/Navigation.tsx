@@ -481,7 +481,7 @@ const Navigation: React.FC = () => {
                         href="/auth"
                         className="block w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
                       >
-                        登出
+                        註冊/登入
                       </Link>
                       <Link
                         href="/test"

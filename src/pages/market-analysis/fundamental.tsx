@@ -25,7 +25,7 @@ const LineChart: React.FC<{ data: DataPoint[]; width?: number; height?: number }
   const pad = 8;
   const innerW = width - pad * 2;
   const innerH = height - pad * 2;
-  const points = data.map((d, i) => {
+  const points = data.map((d, i) => {``
     const x = pad + (i / (data.length - 1)) * innerW;
     const y = pad + ((max - d.value) / (max - min || 1)) * innerH;
     return `${x},${y}`;
