@@ -97,14 +97,6 @@ financial-analysis-web/
    ```bash
    npm install
    ```
-3. **根目錄環境變數.env**
-   ```
-   DB_SERVER='your_server_name'
-   DB_PORT='1433'
-   DB_WEBUSER='your_server_name'
-   DB_WEBUSER_PASSWORD='your_password'
-   FASTAPI_URL=http://localhost:8080
-   ```
 4. **啟動開發伺服器**
 
    ```bash
