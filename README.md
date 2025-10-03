@@ -103,6 +103,7 @@ financial-analysis-web/
    DB_PORT='1433'
    DB_WEBUSER='your_server_name'
    DB_WEBUSER_PASSWORD='your_password'
+   FASTAPI_URL=http://localhost:8080
    ```
 4. **啟動開發伺服器**
 
