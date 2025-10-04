@@ -135,16 +135,17 @@ const TradeSignalsPage: React.FC = () => {
       <div className="max-w-6xl mx-auto py-10 px-4">
         <button
           type="button"
-          className="mb-6 px-4 py-2 bg-white hover:bg-indigo-50 text-indigo-600 border border-indigo-200 rounded-lg text-base font-semibold shadow-sm flex items-center gap-2 transition-all duration-200"
+          className="mb-6 group relative overflow-hidden px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white rounded-xl text-base font-semibold shadow-lg hover:shadow-xl flex items-center gap-3 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border border-white/20 backdrop-blur-sm"
           onClick={() => window.history.back()}
         >
+          <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            strokeWidth={2}
+            strokeWidth={2.5}
             stroke="currentColor"
-            className="w-5 h-5"
+            className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform duration-300"
           >
             <path
               strokeLinecap="round"
@@ -152,7 +153,8 @@ const TradeSignalsPage: React.FC = () => {
               d="M15.75 19.5L8.25 12l7.5-7.5"
             />
           </svg>
-          返回上一頁
+          <span className="relative z-10">返回上一頁</span>
+          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-indigo-400/20 to-purple-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
         </button>
 
         <h1 className="text-4xl font-bold mb-6 text-center flex items-center justify-center gap-2">

@@ -10,7 +10,7 @@ import MessageBubble from "@/components/pages/chat/MessageBubble";
 import { Message, Icons } from "@/components/pages/chat/common";
 import Footer from "@/components/Layout/Footer";
 
-const OLLAMA_API_URL = "http://172.25.1.24:11434/api/chat";
+const OLLAMA_API_URL = "http://172.25.1.24//:11434/api/chat";
 const MODEL_NAME = "gpt-oss";
 
 const Chat: React.FC = () => {
@@ -20,7 +20,6 @@ const Chat: React.FC = () => {
   const [bannerError, setBannerError] = useState<string | null>(null);
   const [toastText, setToastText] = useState<string | null>(null);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
-  const [autoScrollEnabled, setAutoScrollEnabled] = useState(true);
 
   const [selectedModel, setSelectedModel] = useState<string>(MODEL_NAME);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -50,12 +49,6 @@ const Chat: React.FC = () => {
 
   // 生成唯一ID的函數
   const generateId = () => Math.random().toString(36).substr(2, 9);
-
-  // auto scroll to bottom on messages change when enabled
-  useEffect(() => {
-    if (autoScrollEnabled)
-      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, autoScrollEnabled]);
 
   // autofocus on mount
   useEffect(() => {
@@ -304,10 +297,7 @@ const Chat: React.FC = () => {
     const el = containerRef.current;
     if (!el) return;
     const onScroll = () => {
-      const threshold = 80;
-      const atBottom =
-        el.scrollHeight - el.scrollTop - el.clientHeight < threshold;
-      setAutoScrollEnabled(atBottom);
+      // 移除自動捲動相關的邏輯，讓使用者自由控制捲動
     };
     el.addEventListener("scroll", onScroll);
     return () => el.removeEventListener("scroll", onScroll);

@@ -123,6 +123,31 @@ const FinancialCodeTestPage = () => {
     <>
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-pink-100 flex flex-col items-center justify-start py-10">
       <div className="bg-white/90 p-10 rounded-2xl shadow-xl w-full max-w-7xl border border-blue-100">
+        {/* 返回上一頁按鈕 */}
+        <button
+          type="button"
+          className="mb-6 group relative overflow-hidden px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white rounded-xl text-base font-semibold shadow-lg hover:shadow-xl flex items-center gap-3 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border border-white/20 backdrop-blur-sm"
+          onClick={() => window.history.back()}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2.5}
+            stroke="currentColor"
+            className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform duration-300"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 19.5L8.25 12l7.5-7.5"
+            />
+          </svg>
+          <span className="relative z-10">返回上一頁</span>
+          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-indigo-400/20 to-purple-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+        </button>
+
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-3xl font-extrabold text-blue-700 flex items-center gap-2">
             <DocumentMagnifyingGlassIcon className="h-8 w-8 text-blue-600" />

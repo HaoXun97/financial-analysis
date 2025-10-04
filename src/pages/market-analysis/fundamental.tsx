@@ -1,4 +1,3 @@
-// ...existing code...
 import React, { useEffect, useState } from "react";
 
 type DataPoint = { date: string; value: number };
@@ -25,7 +24,7 @@ const LineChart: React.FC<{ data: DataPoint[]; width?: number; height?: number }
   const pad = 8;
   const innerW = width - pad * 2;
   const innerH = height - pad * 2;
-  const points = data.map((d, i) => {``
+  const points = data.map((d, i) => {
     const x = pad + (i / (data.length - 1)) * innerW;
     const y = pad + ((max - d.value) / (max - min || 1)) * innerH;
     return `${x},${y}`;
@@ -74,7 +73,6 @@ export default function FundamentalPage(): React.ReactElement {
   useEffect(() => {
     // 預載入四項指標的最近資料（非必需，可按需調整）
     INDICATORS.forEach((it) => fetchIndicator(it.key));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function fetchIndicator(key: IndicatorKey) {
@@ -120,6 +118,36 @@ export default function FundamentalPage(): React.ReactElement {
   return (
     <div style={{ padding: 20, fontFamily: "Segoe UI, Roboto, Arial" }}>
       <h2>基本面分析 — 綜合指標</h2>
+
+      {/* 新增：顯示聚合指標 */}
+      <div
+        style={{
+          padding: 16,
+          marginBottom: 16,
+          background: "#f8fafc",
+          borderRadius: 8,
+          border: "1px solid #e2e8f0",
+        }}
+      >
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div>
+            <h3 style={{ margin: 0, color: "#1e293b" }}>基本面綜合指數</h3>
+            <p style={{ margin: "4px 0 0 0", color: "#64748b", fontSize: 14 }}>{agg.conclusion}</p>
+          </div>
+          <div style={{ textAlign: "right" }}>
+            <div
+              style={{
+                fontSize: 32,
+                fontWeight: "bold",
+                color: agg.index >= 70 ? "#059669" : agg.index <= 30 ? "#dc2626" : "#6b7280",
+              }}
+            >
+              {agg.index}
+            </div>
+            <div style={{ fontSize: 12, color: "#9ca3af" }}>0-100</div>
+          </div>
+        </div>
+      </div>
 
       <div style={{ display: "flex", gap: 16, marginBottom: 12 }}>
         {/* 左側：基本面各項現況，逐一展示石油、黃金、NFP、CPI 的目前現況 */}
@@ -338,4 +366,3 @@ export default function FundamentalPage(): React.ReactElement {
     </div>
   );
 }
-// ...existing code...
