@@ -97,7 +97,7 @@ financial-analysis-web/
    ```bash
    npm install
    ```
-4. **啟動開發伺服器**
+3. **啟動開發伺服器**
 
    ```bash
    npm run dev
